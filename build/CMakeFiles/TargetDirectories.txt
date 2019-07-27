@@ -1,0 +1,3 @@
+/home/lafith/AUV Simulator/build/CMakeFiles/rebuild_cache.dir
+/home/lafith/AUV Simulator/build/CMakeFiles/freebuoyancy.dir
+/home/lafith/AUV Simulator/build/CMakeFiles/edit_cache.dir
