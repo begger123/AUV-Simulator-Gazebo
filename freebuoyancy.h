@@ -55,4 +55,3 @@ private:
 
 GZ_REGISTER_MODEL_PLUGIN(FreeBuoyancyPlugin)
 }
-
