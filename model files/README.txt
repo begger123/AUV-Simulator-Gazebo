@@ -1,1 +1,1 @@
-To import the Hammer Head AUV model into gazebo, paste this "auv" folder inside '~/.gazebo/models/'
+To import these models move them into '~/.gazebo/models/'
