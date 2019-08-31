@@ -7,6 +7,9 @@
 #include "std_msgs/Float32.h"
 #include <gazebo/transport/transport.hh>
 #include <gazebo/msgs/msgs.hh>
+#include <functional>
+#include <gazebo/common/common.hh>
+#include <ignition/math/Vector3.hh>
 
 namespace gazebo
 {
@@ -31,7 +34,7 @@ namespace gazebo
     /// \brief Constructor
     //public: thrusterControl() {}
 
-    public: virtual void Load(physics::ModelPtr _model,physics::LinkPtr _link, sdf::ElementPtr _sdf)
+    public: void Load(physics::ModelPtr _model,physics::LinkPtr _link, sdf::ElementPtr _sdf)
     {
       //output message:
       std::cerr << "\nThe thrusterControl plugin is attach to model[" <<_model->GetName() << "]\n";
