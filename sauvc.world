@@ -30,18 +30,20 @@
         <pose>0 0 -1.4 0 0 0</pose>
       </include>
     </model>
+
     <model name="sea_surface">
       <include>
         <uri>model://sea_surface</uri>
-          <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
       </include>
     </model>
 
    <model name="auv">
       <include>
         <uri>model://auv</uri>
-	<pose>0 0 3 0 0 0</pose>
+	      <pose>0 0 3 0 0 0</pose>
       </include>
+      <plugin name="auvpush" filename="libauvpush.so"/>
     </model>
 
   </world>
