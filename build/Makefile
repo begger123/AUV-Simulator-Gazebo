@@ -111,19 +111,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named auvpush
-
-# Build rule for target.
-auvpush: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 auvpush
-.PHONY : auvpush
-
-# fast build rule for target.
-auvpush/fast:
-	$(MAKE) -f CMakeFiles/auvpush.dir/build.make CMakeFiles/auvpush.dir/build
-.PHONY : auvpush/fast
-
-#=============================================================================
 # Target rules for targets named roscpp_generate_messages_py
 
 # Build rule for target.
@@ -148,6 +135,19 @@ roscpp_generate_messages_eus: cmake_check_build_system
 roscpp_generate_messages_eus/fast:
 	$(MAKE) -f CMakeFiles/roscpp_generate_messages_eus.dir/build.make CMakeFiles/roscpp_generate_messages_eus.dir/build
 .PHONY : roscpp_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named auv_plugin
+
+# Build rule for target.
+auv_plugin: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 auv_plugin
+.PHONY : auv_plugin
+
+# fast build rule for target.
+auv_plugin/fast:
+	$(MAKE) -f CMakeFiles/auv_plugin.dir/build.make CMakeFiles/auv_plugin.dir/build
+.PHONY : auv_plugin/fast
 
 #=============================================================================
 # Target rules for targets named roscpp_generate_messages_lisp
@@ -331,32 +331,32 @@ std_msgs_generate_messages_py/fast:
 	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_py.dir/build.make CMakeFiles/std_msgs_generate_messages_py.dir/build
 .PHONY : std_msgs_generate_messages_py/fast
 
-auvpush.o: auvpush.cc.o
+auv_plugin.o: auv_plugin.cc.o
 
-.PHONY : auvpush.o
+.PHONY : auv_plugin.o
 
 # target to build an object file
-auvpush.cc.o:
-	$(MAKE) -f CMakeFiles/auvpush.dir/build.make CMakeFiles/auvpush.dir/auvpush.cc.o
-.PHONY : auvpush.cc.o
+auv_plugin.cc.o:
+	$(MAKE) -f CMakeFiles/auv_plugin.dir/build.make CMakeFiles/auv_plugin.dir/auv_plugin.cc.o
+.PHONY : auv_plugin.cc.o
 
-auvpush.i: auvpush.cc.i
+auv_plugin.i: auv_plugin.cc.i
 
-.PHONY : auvpush.i
+.PHONY : auv_plugin.i
 
 # target to preprocess a source file
-auvpush.cc.i:
-	$(MAKE) -f CMakeFiles/auvpush.dir/build.make CMakeFiles/auvpush.dir/auvpush.cc.i
-.PHONY : auvpush.cc.i
+auv_plugin.cc.i:
+	$(MAKE) -f CMakeFiles/auv_plugin.dir/build.make CMakeFiles/auv_plugin.dir/auv_plugin.cc.i
+.PHONY : auv_plugin.cc.i
 
-auvpush.s: auvpush.cc.s
+auv_plugin.s: auv_plugin.cc.s
 
-.PHONY : auvpush.s
+.PHONY : auv_plugin.s
 
 # target to generate assembly for a file
-auvpush.cc.s:
-	$(MAKE) -f CMakeFiles/auvpush.dir/build.make CMakeFiles/auvpush.dir/auvpush.cc.s
-.PHONY : auvpush.cc.s
+auv_plugin.cc.s:
+	$(MAKE) -f CMakeFiles/auv_plugin.dir/build.make CMakeFiles/auv_plugin.dir/auv_plugin.cc.s
+.PHONY : auv_plugin.cc.s
 
 freebuoyancy.o: freebuoyancy.cc.o
 
@@ -392,10 +392,10 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... auvpush"
 	@echo "... roscpp_generate_messages_py"
 	@echo "... roscpp_generate_messages_eus"
 	@echo "... edit_cache"
+	@echo "... auv_plugin"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_lisp"
@@ -410,9 +410,9 @@ help:
 	@echo "... freebuoyancy"
 	@echo "... roscpp_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_py"
-	@echo "... auvpush.o"
-	@echo "... auvpush.i"
-	@echo "... auvpush.s"
+	@echo "... auv_plugin.o"
+	@echo "... auv_plugin.i"
+	@echo "... auv_plugin.s"
 	@echo "... freebuoyancy.o"
 	@echo "... freebuoyancy.i"
 	@echo "... freebuoyancy.s"

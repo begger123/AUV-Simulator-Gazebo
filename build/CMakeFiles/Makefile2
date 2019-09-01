@@ -60,43 +60,6 @@ CMAKE_SOURCE_DIR = "/home/lafith/AUV Simulator"
 CMAKE_BINARY_DIR = "/home/lafith/AUV Simulator/build"
 
 #=============================================================================
-# Target rules for target CMakeFiles/auvpush.dir
-
-# All Build rule for target.
-CMakeFiles/auvpush.dir/all:
-	$(MAKE) -f CMakeFiles/auvpush.dir/build.make CMakeFiles/auvpush.dir/depend
-	$(MAKE) -f CMakeFiles/auvpush.dir/build.make CMakeFiles/auvpush.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/lafith/AUV Simulator/build/CMakeFiles" --progress-num=1,2 "Built target auvpush"
-.PHONY : CMakeFiles/auvpush.dir/all
-
-# Include target in all.
-all: CMakeFiles/auvpush.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/auvpush.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/lafith/AUV Simulator/build/CMakeFiles" 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/auvpush.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/lafith/AUV Simulator/build/CMakeFiles" 0
-.PHONY : CMakeFiles/auvpush.dir/rule
-
-# Convenience name for target.
-auvpush: CMakeFiles/auvpush.dir/rule
-
-.PHONY : auvpush
-
-# clean rule for target.
-CMakeFiles/auvpush.dir/clean:
-	$(MAKE) -f CMakeFiles/auvpush.dir/build.make CMakeFiles/auvpush.dir/clean
-.PHONY : CMakeFiles/auvpush.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/auvpush.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
 # Target rules for target CMakeFiles/roscpp_generate_messages_py.dir
 
 # All Build rule for target.
@@ -157,6 +120,43 @@ CMakeFiles/roscpp_generate_messages_eus.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/roscpp_generate_messages_eus.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/auv_plugin.dir
+
+# All Build rule for target.
+CMakeFiles/auv_plugin.dir/all:
+	$(MAKE) -f CMakeFiles/auv_plugin.dir/build.make CMakeFiles/auv_plugin.dir/depend
+	$(MAKE) -f CMakeFiles/auv_plugin.dir/build.make CMakeFiles/auv_plugin.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/lafith/AUV Simulator/build/CMakeFiles" --progress-num=1,2 "Built target auv_plugin"
+.PHONY : CMakeFiles/auv_plugin.dir/all
+
+# Include target in all.
+all: CMakeFiles/auv_plugin.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/auv_plugin.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/lafith/AUV Simulator/build/CMakeFiles" 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/auv_plugin.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/lafith/AUV Simulator/build/CMakeFiles" 0
+.PHONY : CMakeFiles/auv_plugin.dir/rule
+
+# Convenience name for target.
+auv_plugin: CMakeFiles/auv_plugin.dir/rule
+
+.PHONY : auv_plugin
+
+# clean rule for target.
+CMakeFiles/auv_plugin.dir/clean:
+	$(MAKE) -f CMakeFiles/auv_plugin.dir/build.make CMakeFiles/auv_plugin.dir/clean
+.PHONY : CMakeFiles/auv_plugin.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/auv_plugin.dir/clean
 
 .PHONY : clean
 

@@ -1,3 +1,6 @@
+#ifndef _AUV_PLUGIN_HH_
+#define _AUV_PLUGIN_HH_
+
 #include <gazebo/gazebo.hh>
 #include <gazebo/physics/physics.hh>
 #include <thread>
@@ -11,12 +14,12 @@
 #include <gazebo/common/common.hh>
 #include <ignition/math/Vector3.hh>
 
+
 namespace gazebo
 {
   /// \brief A plugin to control a Velodyne sensor.
-  class auvpush : public ModelPlugin
+  class AuvPlugin : public ModelPlugin
   {
-    /// \brief A node use for ROS transport
     private: std::unique_ptr<ros::NodeHandle> rosNode;
 
     /// \brief A ROS subscriber
@@ -31,10 +34,8 @@ namespace gazebo
     /// \brief Pointer to the model.
     private: physics::ModelPtr model;
     private: physics::LinkPtr link;
-    /// \brief Constructor
-    //public: thrusterControl() {}
 
-    public: void Load(physics::ModelPtr _model,physics::LinkPtr _link, sdf::ElementPtr _sdf)
+    public: void Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
     {
       //output message:
       std::cerr << "\nThe thrusterControl plugin is attach to model[" <<_model->GetName() << "]\n";
@@ -48,25 +49,23 @@ namespace gazebo
       }
 
       this->model = _model;
-      this->link=_link;
-      //link
-      this->link=this->model->GetChildLink("auv::auv::hull");
+      //gazebo::physics::LinkPtr link=  _model->GetChildLink("auv::auv::hull");
 
-      // Create our ROS node. This acts in a similar manner to
-      // the Gazebo node
       this->rosNode.reset(new ros::NodeHandle("gazebo_client"));
 
       // Create a named topic, and subscribe to it.
-      ros::SubscribeOptions so =ros::SubscribeOptions::create<std_msgs::Float32>("/" + this->model->GetName() + "/vel_cmd",1,boost::bind(&auvpush::OnRosMsg, this, _1),ros::VoidPtr(), &this->rosQueue);
+      ros::SubscribeOptions so =ros::SubscribeOptions::create<std_msgs::Float32>("/" + this->model->GetName() + "/vel_cmd",1,boost::bind(&AuvPlugin::OnRosMsg, this, _1),ros::VoidPtr(), &this->rosQueue);
       this->rosSub = this->rosNode->subscribe(so);
 
       // Spin up the queue helper thread.
-      this->rosQueueThread =std::thread(std::bind(&auvpush::QueueThread, this));
+      this->rosQueueThread =std::thread(std::bind(&AuvPlugin::QueueThread, this));
     }
 
     public: void OnRosMsg(const std_msgs::Float32ConstPtr &_msg)
     {
-      this->SetForce(_msg->data);
+      //this->SetForce(_msg->data);
+      std::cerr << "\nThe force value is [" <<_msg->data<< "]\n";
+
       //this->link->AddRelativeForce(ignition::math::Vector3d(_msg->data, 0, 0));
     }
 
@@ -80,11 +79,13 @@ namespace gazebo
       }
     }
 
-    public: void SetForce(const double &f)
+  /*  public: void SetForce(const double &f)
     {
-      this->link->AddRelativeForce(ignition::math::Vector3d(f, 0, 0));
-    }
 
+      link->AddRelativeForce(ignition::math::Vector3d(2*f, f, f/3));
+    }
+*/
   };
-  GZ_REGISTER_MODEL_PLUGIN(auvpush)
+  GZ_REGISTER_MODEL_PLUGIN(AuvPlugin)
 }
+#endif

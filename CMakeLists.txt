@@ -14,5 +14,5 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS}")
 add_library(freebuoyancy SHARED freebuoyancy.cc)
 target_link_libraries(freebuoyancy ${GAZEBO_LIBRARIES})
 
-add_library(auvpush SHARED auvpush.cc)
-target_link_libraries(auvpush ${GAZEBO_LIBRARIES} ${roscpp_LIBRARIES})
+add_library(auv_plugin SHARED auv_plugin.cc)
+target_link_libraries(auv_plugin ${GAZEBO_LIBRARIES} ${roscpp_LIBRARIES})

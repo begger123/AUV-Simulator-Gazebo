@@ -43,7 +43,7 @@
         <uri>model://auv</uri>
 	      <pose>0 0 3 0 0 0</pose>
       </include>
-      <plugin name="auvpush" filename="libauvpush.so"/>
+      <plugin name="auv_control" filename="libauv_plugin.so"/>
     </model>
 
   </world>
