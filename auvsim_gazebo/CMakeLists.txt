@@ -10,11 +10,12 @@ find_package(catkin REQUIRED COMPONENTS
 
 find_package(gazebo REQUIRED)
 
-include_directories(include ${catkin_INCLUDE_DIRS} ${GAZEBO_INCLUDE_DIRS} ${SDFormat_INCLUDE_DIRS})
+include_directories(include ${Boost_INCLUDE_DIR} ${catkin_INCLUDE_DIRS} ${GAZEBO_INCLUDE_DIRS} ${SDFormat_INCLUDE_DIRS})
 
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES auvsim_gazebo
   CATKIN_DEPENDS gazebo_ros roscpp rospy std_msgs
-  DEPENDS system_lib gazebo_ros
+  DEPENDS gazebo_ros roscpp rospy std_msgs
 )
+

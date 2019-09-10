@@ -1,11 +1,32 @@
 <?xml version="1.0" ?>
 <sdf version="1.5">
-    <world name="default">
-        <include>
-            <uri>model://sun</uri>
-        </include>
-        <include>
-            <uri>model://ground_plane</uri>
-        </include>
-    </world>
+  <world name="default">
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!--<model name="sauvc pool">
+      <include>
+        <uri>model://sauvc pool</uri>
+        <pose>0 0 -1.4 0 0 0</pose>
+      </include>
+    </model>
+
+    <model name="sea_surface">
+      <include>
+        <uri>model://sea_surface</uri>
+        <pose>0 0 0 0 0 0</pose>
+      </include>
+    </model> -->
+
+   <model name="auv">
+      <include>
+        <uri>model://auv</uri>
+	      <pose>0 0 3 0 0 0</pose>
+      </include>
+      <plugin name="auv_control" filename="libauv_plugin.so"/>
+    </model>
+
+  </world>
 </sdf>
