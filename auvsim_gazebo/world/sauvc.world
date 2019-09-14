@@ -25,6 +25,8 @@
         <uri>model://auv</uri>
 	      <pose>0 0 3 0 0 0</pose>
       </include>
+    <plugin name="auv_plugin" filename="libauv_plugin.so"/>
     </model>
+
   </world>
 </sdf>

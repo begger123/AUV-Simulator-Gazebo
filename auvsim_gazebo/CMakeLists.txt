@@ -18,6 +18,9 @@ include_directories(include ${Boost_INCLUDE_DIR} ${catkin_INCLUDE_DIRS} ${GAZEBO
 add_library(freebuoyancy src/freebuoyancy.cpp)
 target_link_libraries(freebuoyancy ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
 
+add_library(auv_plugin src/auv_plugin.cpp)
+target_link_libraries(auv_plugin ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
+
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES auvsim_gazebo
