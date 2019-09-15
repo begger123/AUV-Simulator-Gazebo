@@ -15,6 +15,7 @@
 #include <ignition/math/Vector3.hh>
 #include<string>
 #include<iostream>
+#include<auvsim_gazebo/ThrusterSpeeds.h>
 
 namespace gazebo
 {
@@ -61,17 +62,24 @@ namespace gazebo
       this->rosNode.reset(new ros::NodeHandle("gazebo_client"));
 
       // Create a named topic, and subscribe to it.
-      ros::SubscribeOptions so =ros::SubscribeOptions::create<std_msgs::Float32>("/" + this->model->GetName() + "/thruster_speeds",1,boost::bind(&AuvPlugin::OnRosMsg, this, _1),ros::VoidPtr(), &this->rosQueue);
+      ros::SubscribeOptions so =ros::SubscribeOptions::create<auvsim_gazebo::ThrusterSpeeds>("/thruster_speeds",1,boost::bind(&AuvPlugin::OnRosMsg, this, _1),ros::VoidPtr(), &this->rosQueue);
       this->rosSub = this->rosNode->subscribe(so);
 
       // Spin up the queue helper thread.
       this->rosQueueThread =std::thread(std::bind(&AuvPlugin::QueueThread, this));
     }
 
-    public: void OnRosMsg(const std_msgs::Float32ConstPtr &_msg)
+    public: void OnRosMsg(const auvsim_gazebo::ThrusterSpeeds::ConstPtr &_msg)
     {
-      std::cerr << "\nThe force value is [" <<_msg->data<< "]\n";
-      this->SetForce(_msg->data);
+      std::cerr << "\nThe force value is [" <<_msg->data[0]<< "]\n";
+      this->thrusters[0]->AddRelativeForce(ignition::math::Vector3d(_msg->data[0], 0, 0));
+      this->thrusters[1]->AddRelativeForce(ignition::math::Vector3d(0, 0, 0));
+      this->thrusters[2]->AddRelativeForce(ignition::math::Vector3d(0, 0, 0));
+      this->thrusters[3]->AddRelativeForce(ignition::math::Vector3d(0, 0, 0));
+      this->thrusters[4]->AddRelativeForce(ignition::math::Vector3d(0, 0, 0));
+      this->thrusters[5]->AddRelativeForce(ignition::math::Vector3d(_msg->reverse[0], 0, 0));
+
+      //this->SetForce(_msg->data);
     }
 
     /// \brief ROS helper function that processes messages
@@ -84,7 +92,7 @@ namespace gazebo
       }
     }
 
-  public: void SetForce(const double &f)
+  /*public: void SetForce(const double &f)
     {
 
       this->thrusters[0]->AddRelativeForce(ignition::math::Vector3d(f, 0, 0));
@@ -93,7 +101,7 @@ namespace gazebo
       this->thrusters[3]->AddRelativeForce(ignition::math::Vector3d(f, 0, 0));
       this->thrusters[4]->AddRelativeForce(ignition::math::Vector3d(f, 0, 0));
       this->thrusters[5]->AddRelativeForce(ignition::math::Vector3d(f, 0, 0));
-    }
+    }*/
   };
   GZ_REGISTER_MODEL_PLUGIN(AuvPlugin)
 }
