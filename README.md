@@ -1,6 +1,7 @@
 # AUV-Simulator
 
-![Screenshot](https://github.com/Lafith/AUV-Simulator/blob/master/model%20files/pic.jpg)
+![Screenshot from 2019-09-15 11-06-24](https://user-images.githubusercontent.com/39316548/64917048-33cc9080-d7a9-11e9-8495-03ade9b708e2.png)
+
 
 A simulator used to test control algorithms written for an Autonomous Underwater Vehicle
 
